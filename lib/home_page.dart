@@ -11,14 +11,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  //text controller
+  
   final _controller = TextEditingController();
 
   // list of todo tasks
-  List toDoList = [
-    ['Make Tutorisl', false],
-    ['Do Exercise', false],
-  ];
+  List toDoList = [];
 
   // checkbox method
   void checkBoxChanged(bool? value, int index){
@@ -27,22 +24,8 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  //create new task
-  void createNewTask(){
-    showDialog(
-      context: context, 
-      builder: (context) {
-        return DialogBox(
-          controller: _controller,
-          onSave: saveNewTask,
-          onCancel: () => Navigator.of(context).pop(),
-        );
-      }
-    );
-  }
-
   //save new task
-  void saveNewTask(){
+  void saveNewTask() {
     setState(() {
       toDoList.add([_controller.text, false]);
       _controller.clear();
@@ -68,19 +51,32 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          createNewTask();
+          showDialog(
+            context: context, 
+            builder: (context) {
+              return DialogBox(
+                controller: _controller,
+                onSave: saveNewTask,
+              );
+            }
+          );
         },
         child: const Icon(Icons.add),
       ),
       body: ListView.builder(
         itemCount: toDoList.length,
         itemBuilder: (context, index) {
-          return ToDoTile(
-            textName: toDoList[index][0], 
-            taskCompleted: toDoList[index][1], 
-            onChanged: (value) => checkBoxChanged(value, index),
-            deleteFunction: (context) => deleteTask(index),
-          );
+          if (toDoList.isEmpty) {
+            return const Center(child: Text('Click the button below to add task!'));
+          }
+          else{
+            return ToDoTile(
+              textName: toDoList[index][0], 
+              taskCompleted: toDoList[index][1], 
+              onChanged: (value) => checkBoxChanged(value, index),
+              deleteFunction: (context) => deleteTask(index),
+            );
+          }
         },
       ),
     );
