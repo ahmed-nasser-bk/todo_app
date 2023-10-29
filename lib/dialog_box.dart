@@ -1,7 +1,6 @@
 // ignore_for_file: sized_box_for_whitespace, must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:todo_app/my_buttons.dart';
 
 class DialogBox extends StatelessWidget {
 
@@ -17,7 +16,7 @@ class DialogBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.yellow,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       content: Container(
         height: 140,
         child: Column(
@@ -27,8 +26,10 @@ class DialogBox extends StatelessWidget {
               width: 300,
               child: TextField(
                 controller: controller,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary)
+                  ),
                   hintText: 'Add a new task',
                 ),
               ),
@@ -36,14 +37,26 @@ class DialogBox extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                MyButton(
-                  text: 'Save', 
-                  onPressed: onSave
+                MaterialButton(
+                  onPressed: onSave,
+                  color: Theme.of(context).colorScheme.secondary,
+                  child: Text(
+                    'Save', 
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary
+                    ),
+                  ),
                 ),
                 const SizedBox(width: 15,),
-                MyButton(
-                  text: 'Cancel', 
+                MaterialButton(
                   onPressed: (() => Navigator.of(context).pop()),
+                  color: Theme.of(context).colorScheme.secondary,
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
                 ),
               ],
             )

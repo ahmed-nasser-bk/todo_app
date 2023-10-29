@@ -43,11 +43,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow[200],
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: const Text('TO DO'),
         centerTitle: true,
         elevation: 0,
+        foregroundColor: Theme.of(context).colorScheme.onSecondary,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -63,21 +64,18 @@ class _HomePageState extends State<HomePage> {
         },
         child: const Icon(Icons.add),
       ),
-      body: ListView.builder(
+      body: toDoList.isEmpty
+      ? const Center( child: Text('Click the button below to add task!'))
+      : ListView.builder(
         itemCount: toDoList.length,
         itemBuilder: (context, index) {
-          if (toDoList.isEmpty) {
-            return const Center(child: Text('Click the button below to add task!'));
-          }
-          else{
-            return ToDoTile(
-              textName: toDoList[index][0], 
-              taskCompleted: toDoList[index][1], 
-              onChanged: (value) => checkBoxChanged(value, index),
-              deleteFunction: (context) => deleteTask(index),
-            );
-          }
-        },
+          return ToDoTile(
+            textName: toDoList[index][0], 
+            taskCompleted: toDoList[index][1], 
+            onChanged: (value) => checkBoxChanged(value, index),
+            deleteFunction: (context) => deleteTask(index),
+          );
+        }
       ),
     );
   }
