@@ -8,7 +8,7 @@ class ThemeClass {
       backgroundColor: Colors.yellow,
     ),
     colorScheme: ColorScheme.light(
-      background: Colors.yellow.shade100,
+      surface: Colors.yellow.shade100,
       primary: Colors.yellow,
       secondary: Colors.black,
       onSecondary: Colors.black,
@@ -22,7 +22,7 @@ class ThemeClass {
       foregroundColor: Colors.white
     ),
     colorScheme: ColorScheme.dark(
-      background: Colors.grey.shade700,
+      surface: Colors.grey.shade700,
       primary: Colors.black,
       secondary: Colors.grey.shade700,
       onSecondary: Colors.white,
