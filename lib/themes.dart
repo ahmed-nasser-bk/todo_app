@@ -6,13 +6,15 @@ class ThemeClass {
     brightness: Brightness.light,
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: Colors.yellow,
+      foregroundColor: Colors.black
     ),
     colorScheme: ColorScheme.light(
       surface: Colors.yellow.shade100,
-      primary: Colors.yellow,
+      primary: Colors.yellow.shade300,
       secondary: Colors.black,
       onSecondary: Colors.black,
     ),
+    fontFamily: 'Montserrat'
   );
 
   static ThemeData darkTheme = ThemeData(
