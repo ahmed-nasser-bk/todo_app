@@ -43,7 +43,7 @@ class DialogBox extends StatelessWidget {
                   child: Text(
                     'Save', 
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.secondary
+                      color: Theme.of(context).colorScheme.onSecondary
                     ),
                   ),
                 ),
@@ -54,7 +54,7 @@ class DialogBox extends StatelessWidget {
                   child: Text(
                     'Cancel',
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.secondary,
+                      color: Theme.of(context).colorScheme.onSecondary,
                     ),
                   ),
                 ),

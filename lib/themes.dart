@@ -14,7 +14,6 @@ class ThemeClass {
       secondary: Colors.black,
       onSecondary: Colors.black,
     ),
-    fontFamily: 'Montserrat'
   );
 
   static ThemeData darkTheme = ThemeData(

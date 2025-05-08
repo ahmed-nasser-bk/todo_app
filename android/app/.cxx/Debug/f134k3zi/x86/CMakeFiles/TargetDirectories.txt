@@ -1,0 +1,2 @@
+C:/Users/tareq/.VScode/Projects/todo_app/android/app/.cxx/Debug/f134k3zi/x86/CMakeFiles/edit_cache.dir
+C:/Users/tareq/.VScode/Projects/todo_app/android/app/.cxx/Debug/f134k3zi/x86/CMakeFiles/rebuild_cache.dir

@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeClass.lightTheme,
       darkTheme: ThemeClass.darkTheme,
+      //to follow system mode
       themeMode: ThemeMode.system,
       home: const HomePage(),
     );

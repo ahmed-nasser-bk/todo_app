@@ -1,0 +1,1 @@
+C:\Users\tareq\.VScode\Projects\todo_app\build\app\intermediates\cxx\Debug\f134k3zi\obj\armeabi-v7a
